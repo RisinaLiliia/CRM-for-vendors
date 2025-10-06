@@ -16,7 +16,7 @@ export default function CompanyRow({ company }: CompanyRowProps) {
         {company.categoryTitle}
       </td>
       <td>
-        <Link href={`/companies/${company.id}`}>{company.title}</Link>
+        <Link href={`/src/app/(admin)/companies/${company.id}`}>{company.title}</Link>
       </td>
       <td>
         <StatusLabel status={company.status} />
