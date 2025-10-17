@@ -1,23 +1,19 @@
 import React from 'react';
-import clsx from 'clsx';
 
-export interface SummaryTableCellProps {
-    align?: 'left' | 'center' | 'right';
-    children: React.ReactNode;
+export interface SummaryTableProps {
+    headers: React.ReactNode;
+    children?: React.ReactNode;
 }
 
-export default function SummaryTableCell({
-                                             align = 'left',
-                                             children,
-                                         }: SummaryTableCellProps) {
+export default function SummaryTable({ headers, children }: SummaryTableProps) {
     return (
-        <td
-            className={clsx(
-                'py-2 px-5 text-sm border-gray-100 border-r first-of-type:border-l',
-                `text-${align}`,
-            )}
-        >
+        <table className="table-auto w-full border-separate border-spacing-0">
+            <thead>
+            <tr>{headers}</tr>
+            </thead>
+            <tbody className="[&>tr:nth-child(2n)]:bg-gray-100 [&>tr:nth-child(2n+1)]:bg-white">
             {children}
-        </td>
+            </tbody>
+        </table>
     );
 }
