@@ -16,6 +16,7 @@ const Homepage = () => {
     return (
         <div className="min-h-screen bg-[#F7F7F7] text-[#111827] font-sans">
 
+            {/* Hero Section */}
             <header className="flex flex-col md:flex-row justify-between items-center py-16 sm:py-20 lg:py-24 px-6 sm:px-8 lg:px-12 xl:px-16 bg-[#111827] text-center md:text-left space-y-8 md:space-y-0">
                 <div className="container flex flex-col items-center md:items-start space-y-8 max-w-xl px-4 md:px-12">
                     <Image
@@ -45,11 +46,15 @@ const Homepage = () => {
                         height={440}
                         src="/images/website.png"
                         alt="foto_website"
-                        layout="responsive"
+                        layout="intrinsic"  // Adjusted for better responsive behavior
+                        objectFit="contain"
+                        priority
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                 </div>
             </header>
 
+            {/* Key Features */}
             <section className="py-16 sm:py-20 lg:py-24 bg-[#fafafa] text-center">
                 <div className="container mx-auto space-y-10">
                     <h2 className="text-3xl sm:text-4xl font-semibold text-[#111827]">Key Features</h2>
@@ -68,10 +73,12 @@ const Homepage = () => {
                 </div>
             </section>
 
-            <section >
+            {/* Success Statistics */}
+            <section>
                 <SuccessStatisticsChart />
             </section>
 
+            {/* Call to Action */}
             <section className="py-16 sm:py-20 lg:py-24 bg-[#e9d5ff] text-center px-6 sm:px-8 lg:px-12 xl:px-16">
                 <h2 className="text-3xl sm:text-4xl font-semibold text-[#111827] mb-6">Get Started with Our CRM Today!</h2>
                 <Link href="/dashboard">
@@ -81,6 +88,7 @@ const Homepage = () => {
                 </Link>
             </section>
 
+            {/* FAQ Section */}
             <section>
                 <FAQSection />
             </section>
