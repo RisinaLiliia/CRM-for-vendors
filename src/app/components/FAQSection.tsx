@@ -16,7 +16,7 @@ const FAQSection = () => {
     };
 
     return (
-        <section className="py-16 sm:py-20 lg:py-24 bg-[#F7F7F7] text-center px-6 sm:px-8 lg:px-12 xl:px-16">
+        <section className="section-container bg-background text-center">
             <div className="container mx-auto space-y-8">
                 <h2 className="text-3xl sm:text-4xl font-semibold text-[#111827]">Frequently Asked Questions</h2>
                 <div className="space-y-6 max-w-3xl mx-auto">
@@ -24,21 +24,17 @@ const FAQSection = () => {
                         <div key={idx} className="text-left transition-all duration-300 ease-in-out">
                             <div
                                 className="flex justify-between items-center cursor-pointer p-4 bg-[#e9d5ff] rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                                onClick={() => toggleAnswer(idx)} // теперь idx имеет тип number
+                                onClick={() => toggleAnswer(idx)}
                             >
-                                <h3 className="text-xl sm:text-2xl font-medium text-[#111827]">{faq.question}</h3>
+                                <h3 className="text-xl sm:text-2xl font-medium text-[#111827] leading-tight">{faq.question}</h3>
                                 <span className="text-xl text-[#111827]">{openIndex === idx ? '-' : '+'}</span>
                             </div>
 
-                            {/* Отображение ответа при раскрытии */}
                             <p
-                                className={`transition-all duration-300 ease-in-out text-lg sm:text-xl text-[#111827] opacity-80 ${openIndex === idx ? 'max-h-[200px] mb-4' : 'max-h-0 overflow-hidden'}`}
+                                className={`transition-all duration-300 ease-in-out text-lg sm:text-xl text-[#111827] opacity-80 overflow-hidden ${openIndex === idx ? 'max-h-[200px] mb-4' : 'max-h-0'}`}
                                 style={{
-                                    transition: 'max-height 0.3s ease',
                                     marginTop: '1rem',
                                     marginBottom: openIndex === idx ? '1rem' : '0',
-                                    borderRadius: '8px',
-                                    backgroundColor: '#f7f7f7',
                                 }}
                             >
                                 {faq.answer}

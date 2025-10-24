@@ -4,13 +4,12 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 
-
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const SuccessStatisticsChart = () => {
 
     const data = {
-        labels: ['Companies', 'Vendors', 'Reviews', 'Cost Reduction'], // Подписи для оси X
+        labels: ['Companies', 'Vendors', 'Reviews', 'Cost Reduction'],
         datasets: [
             {
                 label: 'Success Metrics',
@@ -22,7 +21,6 @@ const SuccessStatisticsChart = () => {
             },
         ],
     };
-
 
     const options = {
         responsive: true,
@@ -47,7 +45,7 @@ const SuccessStatisticsChart = () => {
     };
 
     return (
-        <div className="py-16 sm:py-20 lg:py-24 bg-[#fafafa] text-center px-6 sm:px-8 lg:px-12 xl:px-16">
+        <section className="section-container bg-background text-center">
             <div className="container mx-auto space-y-10">
                 <h2 className="text-3xl sm:text-4xl font-semibold text-[#111827]">Maximize Efficiency with Our CRM for Vendors</h2>
 
@@ -73,6 +71,7 @@ const SuccessStatisticsChart = () => {
                 <div className="max-w-4xl mx-auto mt-8">
                     <Line data={data} options={options} />
                 </div>
+
                 <p className="text-lg sm:text-xl text-[#111827] max-w-2xl mx-auto mt-8">
                     "Thanks to our CRM, Company XYZ was able to automate its vendor management processes, reducing order processing time by 40%. They can now respond faster to customer requests and significantly increase customer satisfaction."
                 </p>
@@ -80,7 +79,7 @@ const SuccessStatisticsChart = () => {
                     "The interface is simple and intuitive, allowing for quick integration with ERP systems and other business tools."
                 </p>
             </div>
-        </div>
+        </section>
     );
 };
 

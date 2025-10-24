@@ -3,11 +3,143 @@
 @tailwind utilities;
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
+
 body {
-  background-color: #FAFAFA;
+    background-color: #fafafa;
+    font-family: var(--font-family), sans-serif;
+    color: var(--primary-text-color, #111827);
+}
+
+:root {
+    --font-family: "SF Pro", sans-serif;
+    --second-family: "Plus Jakarta Sans", sans-serif;
+    --third-family: "Inter", sans-serif;
+    --font3: "Poppins", sans-serif;
+
+    --primary-color: #111827;
+    --secondary-color: #e9d5ff;
+    --accent-color: #d9f99d;
+    --background-color: #fafafa;
+
+    --status-active-text: #1f6e29; /* Зеленый текст для Active */
+    --status-active-bg: #e6f7e4; /* Светло-зеленый фон для Active */
+
+    --status-not-active-text: #c53030; /* Красный текст для Not Active */
+    --status-not-active-bg: #fee2e2; /* Светло-красный фон для Not Active */
+
+    --status-pending-text: #9c4221; /* Оранжевый текст для Pending */
+    --status-pending-bg: #fef3c7; /* Светло-оранжевый фон для Pending */
+
+    --status-suspended-text: #3182ce; /* Синий текст для Suspended */
+    --status-suspended-bg: #ebf8ff; /* Светло-синий фон для Suspended */
+}
+
+.status-label {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.status-label-active {
+    color: var(--status-active-text);
+    background-color: var(--status-active-bg);
+}
+
+.status-label-not-active {
+    color: var(--status-not-active-text);
+    background-color: var(--status-not-active-bg);
+}
+
+.status-label-pending {
+    color: var(--status-pending-text);
+    background-color: var(--status-pending-bg);
+}
+
+.status-label-suspended {
+    color: var(--status-suspended-text);
+    background-color: var(--status-suspended-bg);
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family);
+    font-weight: bold;
+}
+
+
+@media (max-width: 639px) {
+    .status-label {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    .status-label {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .status-label {
+        font-size: 1.125rem;
+        padding: 1rem 2rem;
+    }
+}
+
+.hero-button {
+    @apply px-6 py-3 sm:px-8 sm:py-4 bg-[#e9d5ff] text-[#111827] text-lg font-medium rounded-md shadow-md hover:bg-[#d9f99d] transition-all duration-300;
+}
+
+.hero-title {
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold text-[#d9f99d] leading-tight;
+}
+
+.hero-text {
+    @apply text-base sm:text-lg md:text-xl text-[#fafafa] max-w-2xl mx-auto;
+}
+
+.section-container {
+    max-width: 7xl;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+@media (min-width: 640px) {
+    .section-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .section-container {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .section-container {
+        padding-left: 12rem;
+        padding-right: 12rem;
+    }
 }
