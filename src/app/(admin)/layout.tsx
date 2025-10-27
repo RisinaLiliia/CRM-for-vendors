@@ -1,5 +1,7 @@
 import React from 'react';
 import Sidebar from '@/app/components/sidebar';
+import MobileNav from '@/app/components/MobileNav';
+
 
 export interface LayoutProps {
   children: React.ReactNode;
@@ -8,7 +10,8 @@ export interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <>
-      <Sidebar />
+        <Sidebar />
+        <MobileNav />
       <div className="ml-60">{children}</div>
     </>
   );
