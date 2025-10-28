@@ -15,7 +15,7 @@ export default async function Page({}: PageProps) {
 
   return (
     <DashboardCard label="Countries of companies">
-      <div className="flex items-end pb-5 px-5 gap-2">
+<div className="pb-5 px-5 gap-2 sm:flex sm:items-end sm:gap-2">
         <div>
           {countries.map(({ id, title }) => (
             <p

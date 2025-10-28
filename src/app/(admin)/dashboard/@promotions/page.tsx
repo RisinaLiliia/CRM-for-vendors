@@ -12,23 +12,27 @@ export default async function Page({}: PageProps) {
 
   return (
     <DashboardCard label="Promotions">
-      <SummaryTable
-        headers={
-          <>
-            <SummaryTableHeader>Company</SummaryTableHeader>
-            <SummaryTableHeader>Name</SummaryTableHeader>
-            <SummaryTableHeader align="center">%</SummaryTableHeader>
-          </>
-        }
-      >
-        {data.map(({ id, title, companyTitle, discount }) => (
-          <tr key={id}>
-            <SummaryTableCell>{companyTitle}</SummaryTableCell>
-            <SummaryTableCell>{title}</SummaryTableCell>
-            <SummaryTableCell align="center">{`-${discount}%`}</SummaryTableCell>
-          </tr>
-        ))}
-      </SummaryTable>
+      {/* Добавляем overflow-x-auto для горизонтальной прокрутки на мобильных устройствах */}
+      <div className="overflow-x-auto">
+        <SummaryTable
+          className="min-w-full table-auto"
+          headers={
+            <>
+              <SummaryTableHeader>Company</SummaryTableHeader>
+              <SummaryTableHeader>Name</SummaryTableHeader>
+              <SummaryTableHeader align="center">%</SummaryTableHeader>
+            </>
+          }
+        >
+          {data.map(({ id, title, companyTitle, discount }) => (
+            <tr key={id}>
+              <SummaryTableCell>{companyTitle}</SummaryTableCell>
+              <SummaryTableCell>{title}</SummaryTableCell>
+              <SummaryTableCell align="center">{`-${discount}%`}</SummaryTableCell>
+            </tr>
+          ))}
+        </SummaryTable>
+      </div>
     </DashboardCard>
   );
 }
