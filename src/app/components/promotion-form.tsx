@@ -31,7 +31,7 @@ export default function PromotionForm({
 }: PromotionFormProps) {
   const queryClient = useQueryClient();
 
-  const { data: company } = useQuery({
+  const { data: company, isLoading, isError, error } = useQuery({
     queryKey: ['companies', companyId],
     queryFn: () => getCompany(companyId),
     staleTime: 10 * 1000,
@@ -44,7 +44,6 @@ export default function PromotionForm({
       queryClient.invalidateQueries({
         queryKey: ['promotions', companyId],
       });
-
       queryClient.invalidateQueries({
         queryKey: ['promotions'],
         exact: true,
@@ -53,9 +52,7 @@ export default function PromotionForm({
   });
 
   const handleSubmit = async (values: PromotionFieldValues) => {
-    if (!company) {
-      return;
-    }
+    if (!company) return;
 
     await mutateAsync({
       ...values,
@@ -68,6 +65,8 @@ export default function PromotionForm({
       onSubmit(values);
     }
   };
+  if (isLoading) return <p>Loading company...</p>;
+  if (isError) return <p>Error: {error?.message}</p>;
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
