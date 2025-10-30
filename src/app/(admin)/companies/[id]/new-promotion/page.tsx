@@ -1,26 +1,19 @@
-import { GetServerSideProps } from 'next';
-import React from 'react';
+
+import { notFound } from 'next/navigation';
 import PromotionForm from '@/app/components/promotion-form';
 
-export interface PageProps {
-  params: { id: string };
-}
-export const getServerSideProps: GetServerSideProps<PageProps> = async (context) => {
-  const { id } = context.params || {};
+export default async function Page({ params }: { params: { id: string } }) {
+  const { id } = params;
 
-  const idStr = Array.isArray(id) ? id[0] : id ?? ''; 
+ 
+  if (!id) {
+    notFound(); 
+  }
 
-  return {
-    props: {
-      params: { id: idStr },
-    },
-  };
-};
-
-export default function Page({ params }: PageProps) {
   return (
     <div className="py-6 px-10">
-      <PromotionForm companyId={params.id} />
+      <PromotionForm companyId={id} />
     </div>
   );
 }
+
